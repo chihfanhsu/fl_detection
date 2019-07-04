@@ -1,2 +1,4 @@
-# fl_detection
-Facial landmarks detection
+# Facial landmarks detection
+
+1. Simple cnn
+2. Deep Alignment Network
