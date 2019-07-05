@@ -125,13 +125,13 @@ def conn_layers(imgs, mean_s, s_current, fc_current):
     T_pts=__affine_shape(s_current, r, t, isinv=False)
     
     # heatmap generation
-    hmap = __gen_heatmap(T_pts, IMAGE_SIZE//2)
+    hmap = __gen_heatmap(T_pts, IMAGE_SIZE)
     
     # feature generation
-    fm_flat = tf.layers.dense(fc_current,(IMAGE_SIZE // 4) ** 2,activation=tf.nn.relu)
+    fm_flat = tf.layers.dense(fc_current,(IMAGE_SIZE // 2) ** 2,activation=tf.nn.relu)
 #     print('fm_flat', fm_flat)
-    fm = tf.reshape(fm_flat, shape = [-1,(IMAGE_SIZE // 4),(IMAGE_SIZE // 4), 1])
-    fmap = tf.image.resize_images(fm, (IMAGE_SIZE//2, IMAGE_SIZE//2), method=tf.image.ResizeMethod.NEAREST_NEIGHBOR)
+    fm = tf.reshape(fm_flat, shape = [-1,(IMAGE_SIZE // 2),(IMAGE_SIZE // 2), 1])
+    fmap = tf.image.resize_images(fm, (IMAGE_SIZE, IMAGE_SIZE), method=tf.image.ResizeMethod.NEAREST_NEIGHBOR)
     
     return T_img, hmap, fmap, T_pts, r, t
 
@@ -154,20 +154,20 @@ def DAN_blk(imgs, s_mean, s_current, fc_current, train_phase, keeprate, name = '
 def inference (image, s_mean, keep_prob, train_phase, debug):
     # DAN model
 
-    imgs_in_1 = tf.image.resize_images(image, (IMAGE_SIZE//2, IMAGE_SIZE//2), method=tf.image.ResizeMethod.NEAREST_NEIGHBOR)
-    imgs_in_2 = tf.reduce_mean(imgs_in_1, axis=3, keepdims=True)
+    # imgs_in_1 = tf.image.resize_images(image, (IMAGE_SIZE//2, IMAGE_SIZE//2), method=tf.image.ResizeMethod.NEAREST_NEIGHBOR)
+    imgs_in_1 = tf.reduce_mean(image, axis=3, keepdims=True)
     
-    delta_s, fc1 = FF_NN(imgs_in_2, train_phase, keep_prob)
+    delta_s, fc1 = FF_NN(imgs_in_1, train_phase, keep_prob)
     s1_out = tf.cast(s_mean,dtype=tf.float32) + delta_s
 
     # DAN block
     ds2, fc2 = DAN_blk(imgs_in_2, s_mean, s1_out, fc1, train_phase, keep_prob, name = 'DAN_blk1')
-    ds3, fc3 = DAN_blk(imgs_in_2, s_mean, ds2, fc2, train_phase, keep_prob, name = 'DAN_blk2')
-    ds4, fc4 = DAN_blk(imgs_in_2, s_mean, ds3, fc3, train_phase, keep_prob, name = 'DAN_blk3')
+    # ds3, fc3 = DAN_blk(imgs_in_2, s_mean, ds2, fc2, train_phase, keep_prob, name = 'DAN_blk2')
+    # ds4, fc4 = DAN_blk(imgs_in_2, s_mean, ds3, fc3, train_phase, keep_prob, name = 'DAN_blk3')
 #     ds5, fc5 = DAN_blk(imgs_in_2, s_mean, ds4, fc4, train_phase, keep_prob, name = 'DAN_blk4')
 #     ds6, fc6 = DAN_blk(imgs_in_2, s_mean, ds5, fc5, train_phase, keep_prob, name = 'DAN_blk5')
 #     ds7, fc7 = DAN_blk(imgs_in_2, s_mean, ds6, fc6, train_phase, keep_prob, name = 'DAN_blk6')
-    s2_out, _ = DAN_blk(imgs_in_2, s_mean, ds4, fc4, train_phase, keep_prob, name = 'DAN_blk6')
+    s2_out, _ = DAN_blk(imgs_in_2, s_mean, ds2, fc2, train_phase, keep_prob, name = 'DAN_blk6')
     # print(s_out)
     # s_out_flatten = tf.layers.flatten(s_out)
     return s2_out
