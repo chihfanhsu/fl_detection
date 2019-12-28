@@ -1,0 +1,3 @@
+python training_hybridADis.py --gpu=1 --tar_model=hybridADis --batch_size=16 --training=True --testing=0 --lr=0.0001 --dataset=combined
+
+python training_hybridADis.py --gpu=1 --tar_model=hybridADis --batch_size=16 --testing=0 --dataset=combined_with_cofw

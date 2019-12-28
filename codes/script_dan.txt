@@ -1,0 +1,3 @@
+python training_reg.py --gpu=0 --tar_model=dan --batch_size=16 --training=True --testing=0 --lr=0.001 --dataset=combined
+
+python training_reg.py --gpu=0 --tar_model=dan --batch_size=16 --testing=0 --dataset=combined_with_cofw
