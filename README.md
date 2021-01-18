@@ -40,5 +40,5 @@ Comparing different methods (losses) for the facial landmark detection. For a fa
 }
 
 ## Download the Training and Testing Sets
-[Raw images and pts](https://drive.google.com/file/d/1bCcnXII2Dc2dGstt8w_x3fE7SrwCWfVu/view?usp=sharing)<br/>
-[Pickle](https://drive.google.com/file/d/1MkmGLtS_5g_LykovbRQg_JnnbZo6VAOS/view?usp=sharing)
+[Raw images and pts](https://drive.google.com/file/d/1xc3UFD6lKnLDatl8NcjPTd_xMS7u45sO/view?usp=sharing)<br/>
+[Pickle](https://drive.google.com/file/d/1hT6bPZM-uBH4NtXizVCm6T2qfiwDGVj8/view?usp=sharing)
