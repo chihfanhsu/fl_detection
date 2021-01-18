@@ -12,7 +12,7 @@ Comparing different methods (losses) for the facial landmark detection. For a fa
 ![PWC Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/pwc.PNG?raw=true)
 
 3. A Hybrid Network: Combining the regression method and PWC method (two heterogeneous loss function)<br />
-![PWC+disc Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/hybrid.PNG?raw=true)
+![Hybrid Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/hybrid.png?raw=true)
 
 4. Combining with a Discrimination Network: adding a discriminator to test the predicted result is a face-like-shape or not<br />
 ![PWC+disc Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/pwc%2Bdisc.PNG?raw=true)
