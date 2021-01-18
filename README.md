@@ -4,18 +4,17 @@ Comparing different methods (losses) for the facial landmark detection. For a fa
 
 # Tested method
 
-1. Regression Method
+1. Regression Method<br />
 ![Regression Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/regression.PNG?raw=true)
-2. KL-divergence (Heatmap) Method
+2. KL-divergence (Heatmap) Method<br />
 ![Heatmap Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/heatmap.PNG?raw=true)
-2. Pixel-wise Classification Method
+2. Pixel-wise Classification Method<br />
 ![PWC Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/pwc.PNG?raw=true)
-3. Combining with a Discrimination Network
+3. Combining with a Discrimination Network<br />
 ![PWC+disc Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/pwc%2Bdisc.PNG?raw=true)
 
 # Training and Testing Sets
 ![Training&Testing Sets](https://github.com/chihfanhsu/fl_detection/blob/master/figs/testing%20set.PNG?raw=true)
-
 
 # Results
 ![Qualitative](https://github.com/chihfanhsu/fl_detection/blob/master/figs/comparing.PNG?raw=true)
