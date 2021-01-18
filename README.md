@@ -8,9 +8,13 @@ Comparing different methods (losses) for the facial landmark detection. For a fa
 ![Regression Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/regression.PNG?raw=true)
 2. KL-divergence (Heatmap) Method: predict a distribution for each landmark<br />
 ![Heatmap Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/heatmap.PNG?raw=true)
-2. Pixel-wise Classification Method: predict the class of each pixel belonged to a certain landmark or the background<br />
+2. Pixel-wise Classification Method (PWC): predict the class of each pixel belonged to a certain landmark or the background<br />
 ![PWC Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/pwc.PNG?raw=true)
-3. Combining with a Discrimination Network: adding a discriminator to test the predicted result is a face-like-shape or not<br />
+
+3. A Hybrid Network: Combining the regression method and PWC method (two heterogeneous loss function)<br />
+![PWC+disc Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/pwc%2Bdisc.PNG?raw=true)
+
+4. Combining with a Discrimination Network: adding a discriminator to test the predicted result is a face-like-shape or not<br />
 ![PWC+disc Method](https://github.com/chihfanhsu/fl_detection/blob/master/figs/pwc%2Bdisc.PNG?raw=true)
 
 # Training and Testing Sets
